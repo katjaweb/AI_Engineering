@@ -7327,9 +7327,9 @@ Exercise 7.1. Copy the loop from Section 7.5 and encapsulate it in a function ca
 takes a as a parameter, chooses a reasonable value of x, and returns an estimate of the square root of
 a.
 
-3.0
-
 2.0
+
+3.0
 
 diff
 ----
