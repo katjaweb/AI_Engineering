@@ -11,4 +11,5 @@ dependencies = [
     "minsearch>=0.0.10",
     "openai>=2.32.0",
     "pandas>=3.0.2",
+    "pydantic-ai>=1.88.0",
 ]
