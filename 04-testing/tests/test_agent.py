@@ -39,17 +39,14 @@ async def test_agent_runs():
     print("Row Count:", output.row_count)
     print("==================\n")
 
-    # Assertions
     assert output.sql_query is not None
     assert output.sql_query.strip() != ""
 
     assert output.result_text is not None
     assert output.result_text.strip() != ""
 
-    # Verify actual count appears in result
     assert str(expected_count) in output.result_text
 
-    # Optional sanity check
     assert output.row_count >= 1
 
     con.close()
