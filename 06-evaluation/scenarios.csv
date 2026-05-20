@@ -1,0 +1,27 @@
+question,category,type
+How do I make spaghetti carbonara?,specific-recipe,direct
+What can I cook with chicken and coconut milk?,ingredient-search,ingredient-based
+I want something easy and healthy for dinner,preference,vague
+How do I make sushi?,missing-recipe,not-in-collection
+What temperature should I set my oven to for the lava cake?,recipe-detail,specific
+Can I substitute almond milk in the pancakes?,substitution,ingredient_swap
+Can you suggest a vegetarin recipe?,preference,vague
+I want pasta,preference,vague
+What Italian dishes do you have?,cuisine-search,direct
+Can I use bacon instead of guanciale in carbonara?,substitution,ingredient-swap
+Is the Caesar salad vegetarian?,dietary,ingredient-check
+Is the Margherita pizza gluten-free?,dietary,ingredient-check
+How many calories are in the beef tacos?,unanswerable,not-in-dataset
+How do I make ramen?,missing-recipe,not-in-collection
+What's the best restaurant in town?,out-of-scope,irrelevant
+How do I fix my dishwasher?,out-of-scope,irrelevant
+Can I make the falafel with canned chickpeas?,edge-case,ingredient-swap
+Can I make the lava cake without eggs?,substitution,ingredient-swap
+Do you have any vegan desserts?,dietary,preference
+What can I cook with only rice and eggs?,ingredient-search,ingredient-based
+What is the origin of miso soup?,unanswerable,not-in-dataset
+Can I freeze leftover mushroom risotto?,storage,recipe-detail
+Is the tikka masala spicy?,dietary,ingredient-check
+Can I use almond milk instead of regular milk in banana pancakes?,substitution,ingredient-swap
+What are some quick meals for breakfast?,preference,vague
+Do you have any recipes for 10 people?,servings,scaling
