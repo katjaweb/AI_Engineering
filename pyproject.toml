@@ -17,6 +17,7 @@ dependencies = [
     "pyarrow>=24.0.0",
     "pydantic-ai>=1.88.0",
     "questionary>=2.1.1",
+    "streamlit>=1.57.0",
 ]
 
 [dependency-groups]
