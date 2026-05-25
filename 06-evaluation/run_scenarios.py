@@ -1,6 +1,7 @@
 import csv
 import json
 import time
+from datetime import datetime
 
 from recipe_agent import agent
 
@@ -29,6 +30,15 @@ def run_all():
         start = time.time()
         result = agent.run_sync(question)
         elapsed = time.time() - start
+        
+        messages = result.all_messages()
+        tool_context = []
+
+        for msg in messages:
+            for p in getattr(msg, "parts", []):
+
+                if p.__class__.__name__ == "ToolReturnPart":
+                    tool_context.append(p.content)
 
         usage = result.usage()
         cost = calculate_cost(usage)
@@ -37,6 +47,7 @@ def run_all():
             'question': question,
             'category': scenario['category'],
             'type': scenario['type'],
+            'tool_context': tool_context,
             'output': result.output,
             'execution_time': round(elapsed, 2),
             'tokens': {
@@ -49,11 +60,14 @@ def run_all():
 
         print(f"  Done in {elapsed:.1f}s (${cost})")
 
-    with open('results.json', 'w') as f:
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = f"results_{timestamp}.json"
+
+    with open(output_file, 'w') as f:
         json.dump(results, f, indent=2)
 
     total_cost = sum(r['cost'] for r in results)
-    print(f"\nSaved {len(results)} results to results.json")
+    print(f"\nSaved {len(results)} results to {output_file}")
     print(f"Total cost: ${total_cost:.4f}")
 
 if __name__ == "__main__":
