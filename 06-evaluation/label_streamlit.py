@@ -16,7 +16,7 @@ def save_results(data, path):
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
 
-results_path = os.path.join(os.path.dirname(__file__), "results.json")
+results_path = os.path.join(os.path.dirname(__file__), "results_20260525_085829.json")
 data = load_results(results_path)
 
 if "current_idx" not in st.session_state:
