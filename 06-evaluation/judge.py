@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 from pydantic import BaseModel
 from typing import Literal
@@ -29,6 +30,9 @@ A response is "bad" if ANY of these apply:
 Be strict about hallucination. The assistant should only provide information it found
 in the recipe data. General cooking knowledge that goes beyond the recipe text counts
 as hallucination.
+
+Also include a brief reasoning for your judgment, citing specific evidence from the 
+response and the recipe collection.
 """
 
 judge_agent = Agent(
@@ -37,11 +41,12 @@ judge_agent = Agent(
     instructions=judge_instructions,
 )
 
-with open('results.json') as f:
+with open('results_20260525_064433.json') as f:
     results = json.load(f)
 
 for i, row in enumerate(results):
     prompt = f"""Question: {row['question']}
+    Tool context (information from recipes): {row['tool_context']}
 Agent response: {row['output']}"""
 
     evaluation = judge_agent.run_sync(prompt)
@@ -49,7 +54,10 @@ Agent response: {row['output']}"""
     row['judge_reasoning'] = evaluation.output.reasoning
     print(f"[{i+1}/{len(results)}] {row['judge_label']}: {row['question']}")
 
-with open('results_judged.json', 'w') as f:
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_file = f"results_judged_{timestamp}.json"
+
+with open(output_file, 'w') as f:
     json.dump(results, f, indent=2)
 
-print(f"\nSaved judged results to results_judged.json")
+print(f"\nSaved judged results to {output_file}")
