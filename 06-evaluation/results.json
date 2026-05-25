@@ -56,8 +56,8 @@
       "total_tokens": 544
     },
     "cost": 0.000105,
-    "label": null,
-    "comments": "The agent suggests alternatives, which is godd. However he cannot  help to find generals guidelines as there are no guidelines in the recipe data. Actually the agent cannot help with that as he is told answer only based on the recipe data."
+    "label": "bad",
+    "comments": "The agent suggests alternatives, which is good. However he cannot  help to find generals guidelines as there are no guidelines in the recipe data. Actually the agent cannot help with that as he is told to answer only based on the recipe data."
   },
   {
     "question": "What temperature should I set my oven to for the lava cake?",
@@ -176,7 +176,7 @@
       "total_tokens": 273
     },
     "cost": 5.9e-05,
-    "label": null,
+    "label": "bad",
     "comments": "Good: The agent correctly says that there ist no information about gluten-free pizza. Bad: Agent makes suggestions that he cannot fullfill as there are no gluten-free pizza recipes in the data."
   },
   {
@@ -236,8 +236,8 @@
       "total_tokens": 261
     },
     "cost": 5.3e-05,
-    "label": null,
-    "comments": "Telling to contact a professional is out of the scope."
+    "label": "good",
+    "comments": ""
   },
   {
     "question": "Can I make the falafel with canned chickpeas?",
@@ -281,7 +281,7 @@
       "total_tokens": 814
     },
     "cost": 0.000177,
-    "label": null,
+    "label": "good",
     "comments": ""
   },
   {
